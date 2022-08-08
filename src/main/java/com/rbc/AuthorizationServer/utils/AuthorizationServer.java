@@ -1,17 +1,23 @@
-package com.rbc.AuthorizationServer.config;
+package com.rbc.AuthorizationServer.utils;
 
-import java.io.InputStream;
-import java.util.Map;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 
-public class AuthorizationServer   {
+@Configuration
+@PropertySource("classpath:application.yml")
+public class AuthorizationServer {
+
+	@Value("${oauth-client-details.clientId}")
+	static String clientId;
 	
 	String tenantId = "4de6a784-e874-4f76-bbbe-a3382e04ec29";
-    String clientId = "1995eafd-5cbc-4030-afd0-b094e076ee97";
+//    String clientId = "1995eafd-5cbc-4030-afd0-b094e076ee97";
     String clientSecret = "Pxm8Q~Xz6Ph0FIDmNOvzv8IUMN4lUFGnigGsWdid";
 	String resource = "api://5d7e7fa0-2c7a-42f4-b5b8-887e00ae980a";
 	String tokenType = "Bearer";
