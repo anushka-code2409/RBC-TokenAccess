@@ -1,0 +1,33 @@
+package com.rbc.AuthorizationServer.auth;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.spec.InvalidKeySpecException;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.security.authentication.AuthenticationServiceException;
+
+import com.rbc.AuthorizationServer.config.OAuth2Config;
+
+public class ClientCertificateUnitTest {
+	ClientCertificate object = new ClientCertificate();
+	OAuth2Config oauthconfig = new OAuth2Config();
+	
+	@Test  
+	  void testgetPrivateKey() throws NoSuchAlgorithmException, InvalidKeySpecException, IOException {  
+	    
+			oauthconfig.setPrivateKey("MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCe4V0lIDgAnlv1LG02dJyWp+IKbe29B8hELWD/QETRzilPodHs606HC2YC8pwhMd8XIfhSb97RMrtisR9H+LxKiBts/eBZCHqnDY7jl0DGLorfszKV4zCZn5I/BgLl9HVGV1cVokmu/xEYoKQSp9QemDwMiR1ZkMSQnwKQmKoeDDVs2YwTxYuzp6H/Iut7xH43SQibrRynuHjX3a5BlSH9Zx2QKZEe73J14LXAdcsHCHw8B9XwA2zhLh/1zCVEvZ1aAB65D6gjr5Sjbdj1omkqvjepT4u1PHGYDVAIZJ8A9Ux9k8gZoIO8IGd0lVcBZQTzm6j5EwsHav6HWCBd22P5AgMBAAECggEALDnplsMQM8PhLy9Nu2HckOdsuaB+FCeNbMUBAiyeu5Ra1YrjB8M8mcTngZyNL4RVaHgRSslPSgaIOOG7Jmqr50dZ8w38nGwK0GOqydm5szETgU+9nhGe3rSXnimLNv3Eg28ek6wYPLlNxgA5i+Ph3R5dYNPuMpdk0CkjKqMEf9ZP0pJ8yH0YVpzCTC8JJW21ADrLKA2WdAAMQ2q5qVWbnC2qjtJbwoWV4Ev78mJVDPrqe3oOhBbNSdTdP/SPuuvjRcWJZ2CyMbaYKmHEtGtWjI6xnlnaGDClVgNX0PFHGhCuMqdu+mM9IVDvtnVQz7iH+ivyfA+MiOhdHcUljXggsQKBgQDRFCJZ+v2mXq7AGNgdHPwQUJrXeBFBLnw5Jw+Oue6CICsVRNdmxDtnUHSmgM8qr8Hh2HSD0rraH64/wCc7PTWrXrsk7Uak+/ukOy4Vk4l4Pn9E03eXzROfbB9n1xlsObmg2FYkHfYlGHCHWMR9BsXD1ygqO3DBkAGgzJFLMbKt5QKBgQDCiUPBzoyU6gbqnV+KvWFEsA2/8FYtbkhiKaQ/jUY0va9X7GPv00ShuDT6PISFRG4kFk2tGdOz9mo8cxUVJTc52SFfRK0bbRHj54NmZjyK7x6EL6zA7Nmc0uG+M9UVdX7FhGjEuVuKUM74vqNE7Bt9o4DxfJduaInLqRd5fNochQKBgQCnp0WEccdDyVjHoSRq8/sL+hawAQ+U/PmPusq24FFo9vKVM4amWWRpDBL+EPwOdrE5sKB9tFUw44aOiD7tOb/3kxbuHXYwhf7bSrlBg/UP/s1/GzMi/sdlZwYn9kvkhMVdPRyWCZB/XoGdhojI2M1spPMIKnHYROmJT4CSk198IQKBgEzMxgwwT/3GOn7LLFnolAr6+iKpbkw3OqpOSEKysmHF9QBgGcAnhvPVdkzIMYUvU9A5YecRyCtG///naw5TB+91kiA7S6AFOkfgMVbuy74J0uFatPfhSbQI6QgfDGORZD/0Gyx3BPWhG2TGVkyybdP3BcPQbTQwXx4hHlxe9vjFAoGAdK4kUvt1+KMQUpVnPrhgZU8J83TQodJ0A2i6BJFL/KHACHAna2EdXDWeQuuJ99IN6E6GCNRp2LHjMhTw2O0HLdSJ79iTjN9bJeXKi0d61tvi3b83NGyb4QfQbW6FFRn/+zK2PzmEZyWX/usF7jbFlG7VIDLAdj4nzVDZAJdk7wE=");
+		
+			
+			PrivateKey result = object.getPrivateKey(oauthconfig);
+			String expected = "SunRsaSign RSA private CRT key, 2048 bits";
+			assertEquals(expected,result);
+	    
+	 }
+
+}
