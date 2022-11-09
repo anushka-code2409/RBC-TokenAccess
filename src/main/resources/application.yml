@@ -1,0 +1,15 @@
+client-details:
+  clientId: "999d71e2-f6a4-4d1b-8075-0c8b014c75d1"
+  clientSecret: "RIF8Q~Y3BEKmAFznR7bcNjoBUxZj.0rbUskk7cp3"
+  tenantId: "073c2450-9568-47ef-8d75-e15dd021d2ad"
+  grant_type: "Client_Credentials"
+  token_url: https://login.microsoftonline.com/<tenanatId>/oauth2/token
+  token_type: Bearer
+  resource: api://5d7e7fa0-2c7a-42f4-b5b8-887e00ae980
+
+oauth-endpoints:
+  issuerURL: https://sts.windows.net/4de6a784-e874-4f76-bbbe-a3382e04ec29/
+
+
+server:
+  port: 8080
