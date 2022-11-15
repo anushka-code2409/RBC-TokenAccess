@@ -1,0 +1,14 @@
+server:
+  port: 5000
+ 
+
+  
+logging:
+  file:
+     path: /logs/ClientApp/application.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: 
+     name:
+       pattern: ${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz #by date
+     
