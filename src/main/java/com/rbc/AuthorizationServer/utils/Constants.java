@@ -12,7 +12,7 @@ public class Constants {
 	public static final String EXPIRES_IN = "expires_in";
 	public static final String RESOURCE = "resource";
 	public static final String ENCRYPTED_ACCESS_TOKEN = "AccessToken";
-	public static final String ENCRYPTED_HASH = "EncryptedHash";
+	public static final String 	BINDING_HASH = "Binding_Hash";
 	public static final String EXPIRES_ON = "expiresOn";
 	public static final String EXPIRY_TIME = "ExpiryTime";
 	public static final String TOKEN_TYPE = "token_type";

@@ -285,7 +285,7 @@ public class AuthService {
 			stringToHash = tokenMetadata.get(Constants.ACCESSTOKEN).concat(oauthconfig.getFingerprint());
 		}
 
-		String encryptedHash = utility.getHashString(stringToHash);
+		String bindingHash = utility.getHashString(stringToHash);
 
 		Calendar calendar = Calendar.getInstance();
 		// get expires_in time from token metadata
@@ -293,7 +293,7 @@ public class AuthService {
 		calendar.add(Calendar.SECOND, expInTime);
 		Date expOnTime = calendar.getTime();
 		responseMetadata.put(Constants.ENCRYPTED_ACCESS_TOKEN, encryptedAccessToken);
-		responseMetadata.put(Constants.ENCRYPTED_HASH, encryptedHash);
+		responseMetadata.put(Constants.BINDING_HASH, bindingHash);
 		responseMetadata.put(Constants.SCOPE_API, tokenMetadata.get(Constants.RESOURCE));
 		responseMetadata.put(Constants.EXPIRY_TIME, expOnTime);
 		responseMetadata.put(Constants.CLIENTID, oauthconfig.getClientId());
